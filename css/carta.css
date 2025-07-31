@@ -1,0 +1,147 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: #000000;
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #333;
+  text-align: center;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-top: 40px;
+  text-shadow: 1px 1px 4px rgb(255, 7, 7);
+}
+
+.carta-texto {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+background: linear-gradient(135deg, #e4abf1e8, #efd5dd, #d279ede8);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgb(220, 4, 248);
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.cerrar-carta {
+  display: inline-block;
+  margin: 20px auto 40px;
+  background-color: #00bfa6;
+  background: linear-gradient(135deg, #faf8fde8, #dd8ca4, #79d6ebe8);
+  padding: 12px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 15px #00a5f2;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cerrar-carta:hover {
+  background-color: #019a88;
+  transform: scale(1.05);
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.video-container video:hover {
+  transform: scale(1.02);
+}
+
+/* Corazones flotando */
+.heart {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: #fc007e;
+  transform: rotate(45deg);
+  animation: float 8s linear infinite;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff69b4;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes float {
+  0% {
+    bottom: -10%;
+    left: calc(100% * var(--x));
+    transform: rotate(45deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 110%;
+    left: calc(100% * var(--x) + 30px);
+    transform: rotate(45deg) scale(1.5);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .carta-texto {
+    max-width: 90%;
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  .cerrar-carta {
+    padding: 10px 20px;
+  }
+}
